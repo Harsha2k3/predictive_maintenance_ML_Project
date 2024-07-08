@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles.css">
+    
+    <title>Home Page</title>
+</head>
+<body>
+
+    <h2 id="t">Predict & Prevent (P & P)</h2>
+
+    <nav class="navbar">
+      <ul>
+          <!-- <h2><a href="#home">Home</a></h2> -->
+          <h2><a href="#about">About</a></h2>
+          <h2><a href="#predict-prevent">Predict & Prevent</a></h2>
+          <h2><a href="#contact-me">Contact Me</a></h2>
+      </ul>
+    </nav>
+
+    <div id="about" class="section">
+
+      <img src="https://www.pcimag.com/ext/resources/PCI/2019/May/cyient/pci0519-Cyient-904060684-900.jpg?1557154608" alt="Photo">
+
+      <ul class="about_list">
+        <h1 class="a">About</h1>
+        <li>Predictive maintenance uses machine learning to analyze data from machines.</li>
+        <li>It predicts when machines are about to fail.</li>
+        <li>This allows businesses to fix machines before they break.</li>
+        <li>It reduces downtime and maintenance costs.</li>
+        <li>Predictive maintenance is crucial today as it minimizes unexpected machinery downtime, enhancing operational efficiency.</li>
+        <li>It reduces maintenance costs by scheduling interventions just in time, avoiding unnecessary routine checks</li>
+        <li>This approach extends equipment lifespan and ensures reliability, critical in a competitive market.</li>
+        <li>Predictive maintenance supports sustainability by optimizing resource use and reducing waste.</li>
+      </ul>
+    </div>
+
+
+    <!-- <h1 class="pp">Predict & Prevent</h1> -->
+
+
+    <div id="predict-prevent"  class="section">
+      <h1 class="pp">Predict & Prevent</h1>
+      <div class="container">
+
+        <h1>Predictive Maintenance</h1>
+    
+        <form id="predictionForm" action="{{ url_for('predict') }}" method="post">
+            <div class="form-group">
+                <select id="type" name="type" required>
+                    <option value="" disabled selected></option>
+                    {% for type in types %}
+                        <option value="{{ type }}">{{ type }}</option>
+                    {% endfor %}
+                </select>
+                <label for="type">Type</label>
+            </div>
+    
+            <div class="form-group">
+                <input id="air_temp" name="air_temp" required placeholder=" ">
+                <label for="air_temp">Air temperature [K]</label>
+            </div>
+    
+            <div class="form-group">
+                <input id="process_temp" name="process_temp" required placeholder=" ">
+                <label for="process_temp">Process temperature [K]</label>
+            </div>
+    
+            <div class="form-group">
+                <input id="rot_speed" name="rot_speed" required placeholder=" ">
+                <label for="rot_speed">Rotational speed [rpm]</label>
+            </div>
+    
+            <div class="form-group">
+                <input id="torque" name="torque" required placeholder=" ">
+                <label for="torquetorque">Torque [Nm]</label>
+            </div>
+    
+            <div class="form-group">
+                <input id="tool" name="tool" required placeholder=" ">
+                <label for="tool">Tool wear [min]</label>
+            </div>
+    
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+    
+        <br>
+        <br>
+        <h2 id="pred">{{prediction}}</h3>
+      </div>
+    </div>
+
+
+    <h2 class="le">Local Explanation:</h2>
+    
+    {% if lime_image %}
+    <div class="lime">
+        <img src="{{ lime_image }}" alt="LIME Explanation" style="width:100%; max-width:600px;">
+        <p>{{ max_impact_text }}</p>
+    </div>
+    {% endif %}
+    
+    
+
+    <!-- <h2 class="cb">Get some personalized recommendations from chatbot by clicking <a href="chatbot.html">here</a></h2> -->
+    
+    <div id="contact-me" class="section">
+        <h1 class="con">Get In Touch</h1>
+        <div class="contact-box">
+            <div class="contact-buttons">
+                <a href="mailto:harshamamidipaka2003@gmail.com" class="btn contact-btn">Contact Me</a>
+                <a href="https://www.linkedin.com/in/sri-harsha-mamidipaka-3a1b30236/" target="_blank" class="btn contact-btn">LinkedIn</a>
+                <a href="https://github.com/Harsha2k3" target="_blank" class="btn contact-btn">Github</a>
+            </div>
+        </div>
+    </div>
+
+
+    <p class="cr">© 2024 SRI HARSHA MAMIDIPAKA.All Rights Reserved.</p>
+    
+
+</body>
+</html>
