@@ -48,7 +48,7 @@ def predict():
             'Tool wear [min]' : [float(tool)]
         })
 
-        model = pickle.load(open("Pred_Maintainance_final_ .pkl","rb"))
+        model = pickle.load(open("Pred_Maintainance_final_.pkl","rb"))
         prediction = model.predict(input_data)[0]
 
         if prediction == 0:
