@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, send_from_directory
 import pickle
 import pandas as pd
-from catboost import CatBoostClassifier
 import io
 import lime
 from lime import lime_tabular
