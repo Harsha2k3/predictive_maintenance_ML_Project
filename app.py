@@ -7,6 +7,9 @@ from lime import lime_tabular
 import matplotlib.pyplot as plt
 import base64
 import os
+from markupsafe import Markup
+import dice_ml
+from dice_ml.utils import helpers
 
 
 
@@ -53,6 +56,7 @@ def predict():
 
         if prediction == 0:
             output = "No Failure"
+            counterfactual_table = None
 
         elif prediction == 1:
             output = "Heat Dissipation Failure"
@@ -68,6 +72,20 @@ def predict():
 
         elif prediction == 5:
             output = "Random Failures"
+
+        if prediction != 0:
+            df = pd.read_csv("df.csv")
+            df = df.drop(["Unnamed: 0"] , axis = 1)
+
+            d = dice_ml.Data(dataframe=df, continuous_features=['Type', 'Air temperature [K]', 'Process temperature [K]', 'Rotational speed [rpm]', 'Torque [Nm]', 'Tool wear [min]'], outcome_name='Failure Type')
+            m = dice_ml.Model(model=model, backend="sklearn")
+            exp = dice_ml.Dice(d, m)
+
+            cf = exp.generate_counterfactuals(input_data, total_CFs=2, desired_class=0, features_to_vary=['Type', 'Air temperature [K]', 'Process temperature [K]', 'Rotational speed [rpm]', 'Torque [Nm]', 'Tool wear [min]'])
+            cf_df = cf.cf_examples_list[0].final_cfs_df
+            cf_df = cf_df.reset_index(drop=True)
+
+            counterfactual_table = Markup(cf_df.to_html(classes="table table-striped"))
 
 
         X1_res = pd.read_csv("X1_res.csv")
@@ -96,12 +114,11 @@ def predict():
         max_impact_feature = max(explanation_list, key=lambda x: abs(x[1]))
         max_impact_text = "The feature that impacted the prediction the most is " + max_impact_feature[0] + " i.e, this above specified the feature within this specific range had the most significant impact on the model's prediction for the given instance."
 
-    return render_template("index.html", prediction=output, lime_image=lime_image_path, max_impact_text=max_impact_text)
-
+    return render_template("index.html" , prediction = output , lime_image = lime_image_path , max_impact_text = max_impact_text , counterfactual_table = counterfactual_table)
     
 
-# if __name__ == "__main__":
-#     app.run(debug = True)
+if __name__ == "__main__":
+    app.run()
 
 
 

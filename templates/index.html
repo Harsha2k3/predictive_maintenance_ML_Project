@@ -98,10 +98,23 @@
     
     {% if lime_image %}
     <div class="lime">
-        <img src="{{ lime_image }}" alt="LIME Explanation" style="width:100%; max-width:600px;">
+        <img src="{{ lime_image }}" alt="LIME Explanation" style="width:100%; max-width:700px;">
         <p>{{ max_impact_text }}</p>
     </div>
     {% endif %}
+
+
+    <!-- Add this section to display counterfactual explanations -->
+    {% if counterfactual_table %}
+    <div id="counterfactual-section" class="section">
+        <h2 class="ce">Counterfactual Explanations:</h2>
+        <div class="counterfactual-table">
+            {{ counterfactual_table | safe }}
+            <p class="ce_">This is the smallest change that we can make to the input data so that "{{prediction}}" changes into "No Failure" </p>
+        </div>
+    </div>
+    {% endif %}
+
     
     
 

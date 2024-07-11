@@ -49,3 +49,5 @@ threadpoolctl==3.5.0
 tifffile==2024.7.2 
 tqdm==4.66.4 
 tzdata==2024.1
+markupsafe==2.1.5
+dice-ml==0.11

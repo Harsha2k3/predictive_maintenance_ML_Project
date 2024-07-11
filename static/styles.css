@@ -353,7 +353,7 @@ button span::before {
 
 #contact-me {
   text-align: center;
-  padding-top: 500px; 
+  padding-top: 400px; 
 }
 
 .contact-buttons {
@@ -479,4 +479,65 @@ button span::before {
   text-align: center;
   /* height: 2px; */
   width: 700px;
+}
+
+/* Additional CSS for Counterfactual Explanations */
+
+
+.counterfactual-section{
+  padding-top: 600px;
+}
+
+
+.counterfactual-table {
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  margin-top: 2400px;
+  /* padding: 20px; */
+  /* background-color: rgba(0, 0, 0, 0.5);  */
+  border-radius: 10px;
+  /* box-shadow: 0 0 15px #03e9f4, 0 0 15px rgba(0, 0, 0, 0.6); */
+  color: #fff;
+}
+
+.counterfactual-table table {
+  width: 50%;
+  border-collapse: collapse;
+}
+
+.counterfactual-table th, .counterfactual-table td {
+  border: 1px solid #03e9f4; 
+  padding: 8px;
+  text-align: left;
+}
+
+.counterfactual-table th {
+  background-color: #03e9f4; 
+  color: #fff;
+}
+
+.counterfactual-table td {
+  background-color: rgba(0, 0, 0, 0.8); 
+}
+
+.counterfactual-table tbody tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.6); 
+}
+
+.counterfactual-table tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.8); 
+}
+
+.ce {
+  padding-top: 600px;
+  text-align: center;
+}
+
+.ce_ {
+  padding-top: 20px;
+  font-size: 20px;
+  text-align: center;
+  padding-right: 140px;
 }
