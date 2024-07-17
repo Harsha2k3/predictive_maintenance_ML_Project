@@ -29,3 +29,26 @@ The CatBoost model is trained using Stratified K-Fold Cross-Validation to ensure
 LIME (Local Interpretable Model-agnostic Explanations) is used to provide explanations for the model's predictions.
 ### Counterfactual Analysis
 Counterfactual examples are generated to understand minimal changes needed for opposite outcomes.
+
+
+## Installation
+
+To get started with this project, follow these steps:
+
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/Harsha2k3/YT_API_Channel_Comparator.git
+    YT_API_Channel_Comparator
+    ```
+
+2. **Install the required dependencies**:
+    ```bash
+    pip install -r requirements.txt
+
+
+## Usage
+
+**Run the main script**:
+  ```bash
+  python main.py
+  ```
