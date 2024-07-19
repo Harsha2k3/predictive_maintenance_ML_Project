@@ -52,3 +52,6 @@ To get started with this project, follow these steps:
   ```bash
   python main.py
   ```
+
+## Contact :
+- For any inquiries or questions regarding the T-20 Score Predictor, please reach out to harshamamidipaka2003@gmail.com
