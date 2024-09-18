@@ -30,6 +30,30 @@ LIME (Local Interpretable Model-agnostic Explanations) is used to provide explan
 ### Counterfactual Analysis
 Counterfactual examples are generated to understand minimal changes needed for opposite outcomes.
 
+## Note
+
+Please use this project only if your machine's features fall within the following ranges:
+
+- **Air temperature [K]**:
+  - **Max**: 304.5
+  - **Min**: 295.3
+
+- **Process temperature [K]**:
+  - **Max**: 313.8
+  - **Min**: 305.7
+
+- **Rotational speed [rpm]**:
+  - **Max**: 2886
+  - **Min**: 1168
+
+- **Torque [Nm]**:
+  - **Max**: 76.6
+  - **Min**: 3.8
+
+- **Tool wear [min]**:
+  - **Max**: 253
+  - **Min**: 0
+
 
 ## Installation
 
