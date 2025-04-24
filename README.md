@@ -1,7 +1,8 @@
 # Predictive Maintenance Project
 
 ## Overview
-Predictive maintenance is a technique that uses data analysis tools and techniques to detect anomalies in operations and possible defects in equipment and processes so they can be fixed before they result in failure. This project demonstrates how to implement a predictive maintenance solution using a combination of machine learning, explainable AI, and web technologies.
+Predictive maintenance is a technique that uses data analysis tools and techniques to detect anomalies in operations and possible defects in equipment and processes so they can be fixed before they result in failure. This project demonstrates how to implement a predictive maintenance solution using a combination of machine learning and 
+explainable AI.
 
 ## Dataset
 https://www.kaggle.com/datasets/shivamb/machine-predictive-maintenance-classification
